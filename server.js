@@ -6,7 +6,7 @@ var app = express();
 // heroku port
 const PORT = process.env.PORT || 3000;
 
-// Move all https traffic to http
+// Move all https traffic to http (due to restriction of heroku)
 app.use(function(req, res, next){
   if (req.headers['x-forwarded-proto'] === 'https') {
     res.redirect('http://' + req.hostname + req.url);
